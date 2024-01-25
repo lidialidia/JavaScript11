@@ -16,10 +16,10 @@ if (isNaN(num)) {
     }
 
     // second method
-    let a = 0;
-    while (a + 2 < num ) {
-        a += 2;
+    let a = 2;
+    while (a < num ) {
         console.log(a);
+        a += 2;
     }
 }
 
@@ -27,7 +27,7 @@ if (isNaN(num)) {
 // Напишіть код який виводить в консоль значення від 1 до 100, але замість чисел кратних 3 має виводитись Fizz, замість значень кратних 5 - Buzz, а замість значень кратних і 3 і 5 - FizzBuzz.
 
 for( let i = 1; i <= 100; i++) {
-    if (i % 3 == 0 && i % 5 == 0) {
+    if (i % 15 == 0) {
         console.log('FizzBuzz');
     } else if (i % 3 == 0) {
         console.log('Fizz');
@@ -45,13 +45,7 @@ let string = '42559125';
 let result = '';
 
 for (let i = 0; i < string.length; i++) {
-    switch(string[i] < 5) {
-        case true:
-            result += '0';
-            break;
-        default:
-            result += '1'; 
-    }
+    result += string[i] < 5 ? '0' : '1'
 }
 
 console.log(result);
