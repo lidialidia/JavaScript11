@@ -6,10 +6,8 @@
 function iterativeOddSumTo(number) {
     let sum = 0;
 
-    for (let i = 0; i <= number; i++) {
-        if (i % 2 ===  1) {
-            sum += i;
-        }
+    for (let i = 1; i <= number; i+=2) {
+        sum += i;
     }
 
     return sum;
@@ -24,17 +22,15 @@ console.log(iterativeOddSumTo(10)) // 25
 
 function recursiveOddSumTo(number) {
 
-    if (number === 0) {
-        return 0;
+    if (number === 1) {
+        return 1;
     }
     
-    else if (number % 2 ===  1) {
-        return number + recursiveOddSumTo(number - 1);
+    if (number % 2 === 1) {
+        return number + recursiveOddSumTo(number - 2);
     }
 
-    else {
-        return recursiveOddSumTo(number - 1);
-    }
+    return recursiveOddSumTo(number - 1);
     
 };
   
@@ -51,9 +47,10 @@ const isXOEqual = (str) => {
         oAmount = 0;
 
     for (let i = 0; i < str.length; i++ ) {
-        if (str[i].toLowerCase() === 'o') {
+        const char = str[i].toLowerCase();
+        if (char === 'o') {
             oAmount++;
-        } else if (str[i].toLowerCase() === 'x') {
+        } else if (char === 'x') {
             xAmount++;
         }
     }
