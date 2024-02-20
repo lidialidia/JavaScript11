@@ -20,11 +20,10 @@ const priceData = {
 };
     
 function optimizer(data) {
-   const optimizedData = {};
-   Object.entries(data).forEach(([key, value]) => {
-    optimizedData[key.toLowerCase()] = Number(value).toFixed(2);
-   })
-   return optimizedData;
+   const optimizedData = Object.entries(data).map(([key, value]) => {
+    return [key.toLowerCase(), Number(value).toFixed(2)]
+   });
+   return Object.fromEntries(optimizedData);
 };
    
 let updatedPriceData = optimizer(priceData);
@@ -38,12 +37,12 @@ console.log(updatedPriceData) // {apples: '23.40', bananas: '48.00', oranges: '4
 // Рішення має працювати незалежно від конкретних значень в масиві імен
 
 const userNames = ['Петро', 'Емма', 'Юстин', 'Ілля', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена'];
-const vowels = 'АЕЄИІЇОУЮЯ';
+const vowels = [,'А','Е','Є','И','І','Ї','О','У','Ю','Я'];
 
 // 1 спосіб
 let filteredNames1 = [];
 userNames.forEach((name) => {
-    if (vowels.split('').indexOf(name[0].toUpperCase()) != -1 ) {
+    if (vowels.includes(name[0].toUpperCase())) {
         filteredNames1.push(name);
     }
 });
@@ -51,9 +50,7 @@ userNames.forEach((name) => {
 
 // 2 спосіб
 let filteredNames2 = userNames.filter(name => {
-    if (vowels.split('').indexOf(name[0].toUpperCase()) != -1 ) {
-        return name;
-    }
+    return vowels.includes(name[0].toUpperCase());
 })
 
 console.log(filteredNames1); // ['Емма', 'Юстин', 'Ілля', 'Яна', 'Антон', 'Олена']
@@ -64,9 +61,9 @@ console.log(filteredNames2); // ['Емма', 'Юстин', 'Ілля', 'Яна',
 
 const names = ['Петрик Ольга Іванівна', 'Гнатюк Петро Антонович', 'Рудко Андрій Опанасович'];
 
-let initials = names.sort().map(name => {
+let initials = names.map(name => {
     return name.split(' ').reduce((accumulator, currentValue) => accumulator + currentValue[0] + '.', '')
-});
+}).sort();
 
 console.log(initials); // [ 'Г.П.А.', 'П.О.І.', 'Р.А.О.']
 
@@ -75,10 +72,11 @@ console.log(initials); // [ 'Г.П.А.', 'П.О.І.', 'Р.А.О.']
 // Якщо функція приймає порожній масив, значення null або undefined, вона має повернути порожній масив.
 
 function sortArray(arr) {
-    if ( Array.isArray(arr) ) {
-        return arr.sort((a,b) => a - b);
+    if (!Array.isArray(arr)) {
+        return [];
     }
-    return [];
+    const sortedArray = [...arr];
+    return sortedArray.sort((a,b) => a - b);
 }
 
 console.log(sortArray([1, 12, 10, 50, 5])); // поверне [1,5,10,12,50]
