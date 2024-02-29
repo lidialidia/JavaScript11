@@ -4,18 +4,23 @@
 // Вона виводить в консоль число кожну секунду, починаючи з delay (ціле число) і в кінці замість 0 виведе 'BOOM!'
 
 
-function detonatorTimerFirst(delay) {
-    let detonatorTimer = setInterval(function() {
-        console.log(delay);
-        delay--;
+function detonatorTimer(delay) {
+    let timerId = setInterval(function() {
+
         if (delay === 0) {
             console.log('BOOM!');
-            clearInterval(detonatorTimer);
+            clearInterval(timerId);
+            return;
         }
+
+        console.log(delay);
+
+        delay--;
+    
     }, 1000);
 }
 
-detonatorTimerFirst(3);
+detonatorTimer(3);
 // 3
 // 2
 // 1
@@ -30,15 +35,16 @@ function detonatorTimerSecond(delay) {
 
   function detonator() {
 
-    console.log(delay);
-    delay--;
-
     if (delay === 0) {
         console.log('BOOM!');
         return;
     }
 
-    setTimeout(detonator, delay);
+    console.log(delay);
+
+    delay--;
+
+    setTimeout(detonator, 1000);
   }
 
   detonator();
