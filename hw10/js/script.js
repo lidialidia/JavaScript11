@@ -9,15 +9,9 @@
 // Також вкажіть значення по замовчуванню для всіх цих параметрів (на ваш вибір).
 // Функція має коректно працювати навіть якщо початкова дата пізніше ніж кінцева дата.
 
-function differenceBetweenTwoNumbers(a, b) {
-    return a > b ? a - b : b - a;
-}
+function durationBetweenDates(startDate, endDate, dimension) {
 
-function durationBetweenDates(firstDate, secondDate, dimension) {
-    let firstDateTimestamp = new Date(firstDate).getTime();
-    let secondDateTimestamp = new Date(secondDate).getTime();
-
-    let difference = differenceBetweenTwoNumbers(firstDateTimestamp, secondDateTimestamp);
+    let difference = Math.abs(new Date(startDate).getTime() - new Date(endDate).getTime());
 
     const MILLISECONDS_PER_DAY = 86400000;
     const MILLISECONDS_PER_HOUR = 3600000;
@@ -26,16 +20,16 @@ function durationBetweenDates(firstDate, secondDate, dimension) {
 
     switch (dimension) {
         case 'days':
-            return difference / MILLISECONDS_PER_DAY + ' days';
+            return `${difference / MILLISECONDS_PER_DAY} ${dimension}`;
             break;
         case 'hours':
-            return difference / MILLISECONDS_PER_HOUR + ' hours';
+            return `${difference / MILLISECONDS_PER_HOUR} ${dimension}`;
             break;
         case 'minutes':
-            return difference / MILLISECONDS_PER_MINUTE + ' minutes';
+            return `${difference / MILLISECONDS_PER_MINUTE} ${dimension}`;
             break;
         case 'seconds':
-            return difference / MILLISECONDS_PER_SECONDS + ' seconds';
+            return `${difference / MILLISECONDS_PER_SECONDS} ${dimension}`;
             break;
         default:
             return difference;
@@ -53,7 +47,8 @@ console.log(durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'));
 const userNames = ['Петро', 'Емма', 'Петро', 'Емма', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена', 'Емма'];
 
 function filterUnique(array) {
-    return new Set(array);
+    let filteredUserNames = new Set(array);
+    return [...filteredUserNames];
 }
 
 console.log(filterUnique(userNames)); // ['Петро', 'Емма', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена'];
