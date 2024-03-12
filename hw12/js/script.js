@@ -9,7 +9,7 @@
 
 let navigationText = document.getElementById('headerTwo'),
     firstSection = document.querySelector('section'),
-    listItemWithText = document.querySelectorAll('li')[4],
+    listItemWithText = document.querySelector('li:nth-child(5)'),
     listItemWithClass = document.querySelector('.hatredLevelBlock');
 
 console.log(navigationText);
