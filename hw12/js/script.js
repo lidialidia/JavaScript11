@@ -7,9 +7,9 @@
 // для елементу списку з текстом 'Пункт 5'
 // для елементу з класом 'hatredLevelBlock'
 
-let navigationText = Array.from(document.getElementsByTagName('*')).filter(element => element.textContent.includes('Навігація по DOM дереву')),
+let navigationText = document.getElementById('headerTwo'),
     firstSection = document.querySelector('section'),
-    listItemWithText = Array.from(document.getElementsByTagName('li')).filter(item => item.textContent.includes('Пункт 5')),
+    listItemWithText = document.querySelectorAll('li')[4],
     listItemWithClass = document.querySelector('.hatredLevelBlock');
 
 console.log(navigationText);
