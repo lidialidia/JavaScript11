@@ -18,6 +18,13 @@ body {
     transition: .3s ease-out;
     &.dark {
         background-color: var(--color-dark);
+
+        .switch {
+            color: var(--color-light);
+            background-color: var(--color-dark);
+            border: 1px solid var(--color-light);
+        }
+
         .info {
             color: var(--color-light);
             background-color: var(--color-dark);
@@ -45,13 +52,10 @@ body {
     border-radius: 25rem;
     transition: all .3s ease-out;
     cursor: pointer;
-    &:hover {
-        transform: scale(1.1);
-    }
-    &.dark {
-        color: var(--color-light);
-        background-color: var(--color-dark);
-        border: 1px solid var(--color-light);
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
