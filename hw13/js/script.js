@@ -17,9 +17,7 @@ const format = (element) => element.length < 2 ? `0${element}` : element
 
 const getNewState = (state) => state === STATE_ON ? STATE_OFF : STATE_ON
 
-const getNewText = (text) => text === TEXT_ON ? TEXT_OFF : TEXT_ON
-
-const getCurrentText = (state) => `${TEXT} ${state}`
+const getText = (state) => `${TEXT} ${state}`
 
 // changes on click
 const getDateOfLastChange = () => {
@@ -47,13 +45,9 @@ const switchColorAndText = (event) => {
     const button =  event.target;
 
     const lastText = button.textContent.toLowerCase();
-    const lastState = button.getAttribute('data-value');
+    const newState = getNewState(localStorage.getItem(LOCAL_STORAGE_NEW_STATE) || STATE_ON);
 
-    const newState = getNewState(lastState);
-    const newText = getNewText(lastText)
-
-    button.textContent = newText;
-    button.setAttribute('data-value', newState);
+    button.textContent = getText(newState);
 
     appendParagraph(`Last ${lastText} at ${getDateOfLastChange()}`);
     document.querySelector('.wrapper').classList.toggle('dark');
@@ -67,19 +61,17 @@ const initTheme = () => {
     const lastDate = localStorage.getItem(LOCAL_STORAGE_LAST_DATE);
     
     if(state && lastDate) {
-        const text = getCurrentText(state);
-        const lastText = getNewText(text)
+        const text = getText(state);
+        const lastText = getText(getNewState(state));
 
         appendParagraph(`Last ${lastText} at ${lastDate}`);
         switchButton.textContent = text;
-        switchButton.setAttribute('data-value', state)
 
         if (state === STATE_ON) {
             document.querySelector('.wrapper').classList.add('dark');
         }
     } else {
         switchButton.textContent = TEXT_OFF;
-        switchButton.setAttribute('data-value', STATE_OFF)
     }
 }
 
