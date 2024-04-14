@@ -23,7 +23,68 @@
                         <span class="glider"></span>
                     </div>
                 </div>
-                <div class="tabs__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit facilis facere libero cupiditate, ipsum possimus voluptas nulla soluta exercitationem fugiat adipisci, sint similique. Unde consequuntur nostrum ducimus consectetur doloribus expedita eius animi nobis, dolor voluptas ipsam esse veritatis vel, quis velit quod assumenda amet sapiente consequatur repellat possimus a omnis. Fugiat consequatur quod illum ea earum nulla nesciunt tempora. Ab iure non reprehenderit. Corrupti asperiores iusto maxime itaque vero quae fuga possimus et eum labore ratione aperiam exercitationem molestiae nostrum excepturi nulla facilis ipsa atque ex quaerat magnam, autem dolorum voluptatum. Consequuntur at, dolore debitis architecto explicabo facilis nam delectus tempore possimus sapiente fugiat neque qui nihil id eligendi placeat. Quis ex recusandae numquam. Possimus incidunt quia perspiciatis. Deserunt assumenda consequuntur asperiores eius cumque error, amet minus veritatis corrupti dignissimos porro officia aperiam earum odio debitis quia et sit doloremque, harum obcaecati nesciunt repellat consectetur dolores? Quibusdam, nesciunt! Nisi, dolore.</div>
+                <div class="tabs__content active">
+                    <div class="period">
+                        <form action="#" name="period" class="period__form">
+                            <div class="period__inputs">
+                                <label for="startDate">
+                                    <span>Початкова дата</span>
+                                    <input type="date" id="startDate" class="period__input period__input_date" placeholder="Виберіть початкову дату">
+                                </label>
+                                <label for="endDate">
+                                    <span>Кінцева дата</span>
+                                    <input type="date" id="endDate" class="period__input period__input_date" placeholder="Виберіть кінцеву дату">
+                                </label>
+                            </div>
+                            <div class="period__items period__items_preset">
+                                <button class="period__btn period__btn_preset" data-value="week"> 
+                                    тиждень (7 днів)
+                                </label>
+                                <button class="period__btn period__btn_preset" data-value="month">
+                                    місяць (30 днів)
+                                </label>
+                            </div>
+                            <div class="period__items period__items_days">
+                                <label class="period__label">Всі дні
+                                    <input class="period__input" type="radio" name="days" value="all">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                                <label class="period__label">Будні дні
+                                    <input class="period__input" type="radio" name="days" value="weekdays">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                                <label class="period__label">Вихідні дні
+                                    <input class="period__input" type="radio" name="days" value="weekends">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                            </div>
+                            <p class="period__text">Порахувати кількість:</p>
+                            <div class="period__items period__items_dimension">
+                                <label class="period__label"> днів
+                                    <input class="period__input" type="checkbox" name="dimension" value="days">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                                <label class="period__label"> годин
+                                    <input class="period__input" type="checkbox" name="dimension" value="hours">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                                <label class="period__label"> хвилин
+                                    <input class="period__input" type="checkbox" name="dimension" value="minutes">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                                <label class="period__label"> секунд
+                                    <input class="period__input" type="checkbox" name="dimension" value="seconds">
+                                    <span class="period__checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="period__btns">
+                                <button type="submit" class="period__btn period__btn_count">Порахувати</button>
+                                <button type="reset" class="period__btn period__btn_reset">Очистити</button>
+                            </div>
+                        </form>
+                        <div class="period__table"></div>
+                    </div>
+                </div>
                 <div class="tabs__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam temporibus aut veritatis, maxime aliquam quos impedit sed eligendi ipsam sunt quod amet enim repellendus nisi deleniti vero earum quaerat neque delectus, mollitia consequatur culpa! Eius reprehenderit quos nihil minima, molestias maiores voluptate explicabo. Optio aliquam, ut eaque ipsa magnam maxime?</div>
             </div>
         </div>
