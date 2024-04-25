@@ -1,4 +1,4 @@
-const API_TOKEN = "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";
+const API_TOKEN = "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";
 const API_URL = "https://api.github.com";
 
 export const getUser = async (userName) => {
@@ -36,9 +36,28 @@ export const getFollowers = async (userName, amount = 10) => {
   return data;
 };
 
+export const getRepos = async (userName, amount = 5) => {
+    const response = await fetch(
+      `${API_URL}/users/${userName}/repos?per_page=${amount}`,
+      {
+        headers: {
+            Authorization: `Bearer ${API_TOKEN}`,
+        },
+      }
+    );
+    const data = await response.json();
+  
+    // Error handling
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+  
+    return data;
+};
+
 class API {
   API_URL = "https://api.github.com";
-  #API_TOKEN = "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";
+  #API_TOKEN = "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";
 
   async getUser(userName) {
     const response = await fetch(`${this.API_URL}/users/${userName}`, {
@@ -73,6 +92,25 @@ class API {
     }
 
     return data;
+  }
+
+  async getRepos(userName, amount = 5) {
+    const response = await fetch(
+        `${API_URL}/users/${userName}/repos?per_page=${amount}`,
+        {
+          headers: {
+              Authorization: `Bearer ${API_TOKEN}`,
+          },
+        }
+      );
+      const data = await response.json();
+    
+      // Error handling
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+    
+      return data;
   }
 }
 
