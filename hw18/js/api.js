@@ -1,4 +1,4 @@
-const API_TOKEN = "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";
+const API_TOKEN = "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";
 const API_URL = "https://api.github.com";
 
 export const getUser = async (userName) => {
@@ -57,7 +57,7 @@ export const getRepos = async (userName, amount = 5) => {
 
 class API {
   API_URL = "https://api.github.com";
-  #API_TOKEN = "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";
+  #API_TOKEN = "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";
 
   async getUser(userName) {
     const response = await fetch(`${this.API_URL}/users/${userName}`, {
