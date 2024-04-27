@@ -102,8 +102,11 @@ const handleInput = async ({ target: { value } }) => {
     }
 
     const user = await api.getUser(inputValue);
-    const followers = await api.getFollowers(inputValue, 6);
-    const repos = await api.getRepos(inputValue, 5);
+
+    const [followers, repos] = await Promise.all([
+        api.getFollowers(inputValue, 6),
+        api.getRepos(inputValue, 5)
+    ]);
     
     // Promise.all
     // const [user, followers, repos] = await Promise.all([getUser(inputValue), getFollowers(inputValue, 6), getRepos(inputValue, 5)])
